@@ -9,12 +9,32 @@
 
 package io.github.awidesky.jTetris;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.util.Random;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.border.LineBorder;
 
 // graphic으로 그려서 pointStr 나타낼까?
 public class Tetris {
@@ -269,6 +289,11 @@ class Cell {
 	public Cell(int i, int j) {
 		clear();
 		btn.setEnabled(false);
+		btn.setBorder(new LineBorder(Color.BLACK));
+		btn.setContentAreaFilled(false); //TODO : maybe needed. test on windows
+		btn.setOpaque(true);
+		//btn.setBorderPainted(false);
+		
 		this.i = i;
 		this.j = j;
 	}
@@ -289,8 +314,6 @@ class Cell {
 
 	public void paint() {
 		btn.setBackground(color); //TODO : Use just label or something
-		btn.setOpaque(true);
-		//btn.setBorderPainted(false);
 	}
 }
 
