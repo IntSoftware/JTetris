@@ -35,6 +35,10 @@ public class Tetris {
 	static JMenuItem restart;
 	static JMenuItem pause;
 	static JMenuItem showLeaderBoard;
+	
+	public static void main(String[] args) {
+		startGame();
+	}
 
 	public static void startGame() {
 		HighScore.readLeaderBoard();
@@ -220,6 +224,8 @@ public class Tetris {
 		for (int i = 0; i < hLen; i++)
 			for (int j = 0; j < wLen; j++)
 				cells[i][j].paint();
+		
+		frame.repaint();
 	}
 
 	public static boolean isCollidWall(Position pos) {
@@ -282,7 +288,9 @@ class Cell {
 	}
 
 	public void paint() {
-		btn.setBackground(color);
+		btn.setBackground(color); //TODO : Use just label or something
+		btn.setOpaque(true);
+		//btn.setBorderPainted(false);
 	}
 }
 
