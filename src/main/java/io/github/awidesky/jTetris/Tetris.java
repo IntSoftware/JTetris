@@ -141,7 +141,8 @@ public class Tetris {
 
 	public static void loopOnce() {
 		long interval = System.currentTimeMillis() - loopTime;
-		int speed = point > 400 ? (point > 700 ? (point / 100 - 2) * 100 : 500) : 0;
+//		int speed = point > 400 ? (point > 700 ? Math.min((point / 100 - 2) * 100, 800): 500) : 0;
+		int speed = Math.min(((point > 400 ? point - 300 : 0) / 100) * 100, 800);
 		if (interval >= 1000 - speed && !paused) {
 			log("loop IN");
 			if (++pointStrWait > 2)
