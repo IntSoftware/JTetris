@@ -391,7 +391,6 @@ public class Tetris {
 			btn.setBorder(new LineBorder(Color.BLACK));
 			btn.setContentAreaFilled(false);
 			btn.setOpaque(true);
-			//btn.setBorderPainted(false);
 
 			this.i = i;
 			this.j = j;
